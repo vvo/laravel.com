@@ -47,6 +47,17 @@
 		<p>Laravel is a trademark of Taylor Otwell. Copyright &copy; Taylor Otwell.</p>
 		<p class="less-significant"><a href="http://jackmcdade.com">Design by Jack McDade</a></p>
 	</footer>
+
+    @if (Request::is('docs*') && isset($currentVersion))
+    <script>
+        var algolia_app_id      = '<?php echo Config::get('algolia.connections.main.id', false); ?>';
+        var algolia_search_key  = '<?php echo Config::get('algolia.connections.main.search_key', false); ?>';
+        var version             = '<?php echo $currentVersion; ?>';
+    </script>
+
+        @include('partials.algolia_template')
+    @endif
+
 	<script src="/assets/js/laravel.js"></script>
 	<script src="/assets/js/viewport-units-buggyfill.js"></script>
 	<script>window.viewportUnitsBuggyfill.init();</script>

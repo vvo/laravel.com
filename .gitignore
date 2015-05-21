@@ -9,3 +9,7 @@ composer.phar
 .env
 .DS_Store
 Thumbs.db
+.gitignore
+/storage
+composer.lock
+.idea
